@@ -1,179 +1,118 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/*
- * Globals
- */
 
-/* Links */
-a,
-a:focus,
-a:hover {
-  color: #fff;
-}
-
-/* Custom default button */
-.btn-default,
-.btn-default:hover,
-.btn-default:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritence from `body` */
-  background-color: #fff;
-  border: 1px solid #fff;
-}
-
-
-/*
- * Base structure
- */
+// GLOBAL ////////////////////////////////////////////////////////////////////
 
 html,
 body {
   height: 100%;
-  background-color: #333;
+  // background-color: #333;
 }
 body {
-  color: #fff;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 
-/* Extra markup and styles for table-esque vertical and horizontal centering */
-.site-wrapper {
-  display: table;
-  width: 100%;
-  height: 100%; /* For at least Firefox */
-  min-height: 100%;
-  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
-          box-shadow: inset 0 0 100px rgba(0,0,0,.5);
-}
-.site-wrapper-inner {
-  display: table-cell;
-  vertical-align: top;
-}
-.cover-container {
-  margin-right: auto;
-  margin-left: auto;
-/*  background:url(image_path("Map_background.jpeg")) no-repeat;
-  background-repeat: no-repeat;
-  background-size: 100%;*/
-}
-
-/* Padding for spacing */
-.inner {
-  padding: 30px;
-}
+// GLOBAL ////////////////////////////////////////////////////////////////////
 
 
-/*
- * Header
- */
-.masthead-brand {
-  margin-top: 10px;
-  margin-bottom: 10px;
+
+
+
+
+// COLORS ///////////////////////////////////////////////////////////////////
+$white: rgba(255,255,255,1);
+$white-trans: rgba(255,255,255,0.5);
+
+$black: rgba(0,0,0,1);
+$dark-gray: rgba(0,0,0,0.7);
+$med-gray: rgba(50,50,50,1);
+$light-gray: rgba(0,0,0,0.4);
+
+$blue-med:  #337ab7;
+$blue-dark: rgba(46,109,164,0.3);
+
+
+$primary-color:   rgba(46,109,164,0.7);   // blue
+$secondary-color: rgba(255,255,255,1.0);  // white
+
+
+// COLORS ///////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+// TYPOGRAPHY //////////////////////////////////////////////////////////////
+
+// TYPOGRAPHY //////////////////////////////////////////////////////////////
+
+
+
+
+
+// NAVBAR ///////////////////////////////////////////////////////////////////
+.navbar {
+  margin: 0 0 0 0;
 }
 
-.masthead-nav > li {
-  display: inline-block;
+.navbar-inverse {
+  background-color: $primary-color;
+  border: none;
 }
-.masthead-nav > li + li {
-  margin-left: 20px;
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+  border-color: $secondary-color;
 }
-.masthead-nav > li > a {
-  padding-right: 0;
-  padding-left: 0;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff; /* IE8 proofing */
-  color: rgba(255,255,255,.75);
-  border-bottom: 2px solid transparent;
-}
-.masthead-nav > li > a:hover,
-.masthead-nav > li > a:focus {
-  background-color: transparent;
-  border-bottom-color: #a9a9a9;
-  border-bottom-color: rgba(255,255,255,.25);
-}
-.masthead-nav > .active > a,
-.masthead-nav > .active > a:hover,
-.masthead-nav > .active > a:focus {
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+  background-color: $primary-color;
   color: #fff;
-  border-bottom-color: #fff;
 }
 
-@media (min-width: 768px) {
-  .masthead-brand {
-    float: left;
-  }
-  .masthead-nav {
-    float: right;
-  }
+.navbar-inverse .navbar-nav .open .dropdown-menu .divider {
+  background-color: $secondary-color;
 }
 
-
-/*
- * Cover
- */
-
-.cover {
-  padding: 0 20px;
-}
-.cover .btn-lg {
-  padding: 10px 20px;
-  font-weight: bold;
+.navbar-inverse .navbar-brand {
+  color: $secondary-color;
 }
 
-/*
- * Footer
- */
-
-.mastfoot {
-  color: #999; /* IE8 proofing */
-  color: rgba(255,255,255,.5);
+.navbar-inverse .navbar-nav > li > a {
+  color: $secondary-color;
 }
 
-
-/*
- * Affix and center
- */
-
-@media (min-width: 768px) {
-  /* Pull out the header and footer */
-  .masthead {
-    position: fixed;
-    top: 0;
-  }
-  .mastfoot {
-    position: fixed;
-    bottom: 0;
-  }
-  /* Start the vertical centering */
-  .site-wrapper-inner {
-    vertical-align: middle;
-  }
-  /* Handle the widths */
-  .masthead,
-  .mastfoot,
-  .cover-container {
-    width: 100%; /* Must be percentage or pixels for horizontal alignment */
-  }
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+  color: $secondary-color;
 }
 
-@media (min-width: 992px) {
-  .masthead,
-  .mastfoot,
-  .cover-container {
-    width: 700px;
-  }
+.dropdown-menu  {
+  background-color: $primary-color;
 }
 
+.navbar-inverse .navbar-toggle  {
+  border-color: $white;
+  // background-color: $white-trans;
+}
+
+.navbar-inverse .navbar-toggle:hover {
+  background-color: $white-trans;
+}
+
+.navbar-inverse .navbar-toggle:focus  {
+  background-color: $white-trans;
+}
+// NAVBAR ///////////////////////////////////////////////////////////////////
 
 
 
 
 
 
-/*Footer/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+ // Footer////////////////////////////////////////////////////////////////////
 
 html {
   position: relative;
@@ -214,4 +153,3 @@ code {
 }*/
 
 /*Footer/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-

@@ -22,6 +22,7 @@
 
 
   <body>
+
     <%= render 'layouts/header' %>
 
     <% flash.each do |message_type, message| %>
@@ -31,16 +32,17 @@
     <% end %>
 
     <%= yield %>
+    
   </body>
 
 
 
 
 
-  <footer>  
+  <!-- <footer>
     <div class="container">
       <%= render 'layouts/footer' %>
     </div>
-  </footer>  
+  </footer> -->
 
 </html>
