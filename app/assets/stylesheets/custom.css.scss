@@ -54,6 +54,9 @@ body {
 .cover-container {
   margin-right: auto;
   margin-left: auto;
+/*  background:url(image_path("Map_background.jpeg")) no-repeat;
+  background-repeat: no-repeat;
+  background-size: 100%;*/
 }
 
 /* Padding for spacing */
@@ -120,7 +123,6 @@ body {
   font-weight: bold;
 }
 
-
 /*
  * Footer
  */
@@ -164,3 +166,52 @@ body {
     width: 700px;
   }
 }
+
+
+
+
+
+
+
+/*Footer/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 10px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+/*body > .container {
+  padding: 15px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}*/
+
+/*Footer/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
