@@ -54,6 +54,9 @@ body {
 .cover-container {
   margin-right: auto;
   margin-left: auto;
+/*  background:url(image_path("Map_background.jpeg")) no-repeat;
+  background-repeat: no-repeat;
+  background-size: 100%;*/
 }
 
 /* Padding for spacing */
@@ -118,6 +121,10 @@ body {
 .cover .btn-lg {
   padding: 10px 20px;
   font-weight: bold;
+}
+
+.map{
+  
 }
 
 
