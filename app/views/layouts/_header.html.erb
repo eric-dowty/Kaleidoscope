@@ -39,7 +39,7 @@
         </li>
       </ul>
 
-        <div class= "nav navbar-nav navbar-right"><%= link_to "Login with Instagram", "https://api.instagram.com/oauth/authorize/?client_id=#{ENV["INSTAGRAM_CLIENT"]}&redirect_uri=https://thoughtcloud-.herokuapp.com/maps&response_type=code&scope=basic+likes+relationships+comments", class: "btn btn-default"  %> </div>
+        <div class= "nav navbar-nav navbar-right"><%= link_to "Login with Instagram", "https://api.instagram.com/oauth/authorize/?client_id=#{ENV["INSTAGRAM_CLIENT"]}&redirect_uri=http://localhost:8080/maps&response_type=code&scope=basic+likes+relationships+comments", class: "btn btn-default"  %> </div>
 
 <!--       <a href="https://api.instagram.com/oauth/authorize/?client_id=CLIENT-ID&redirect_uri=REDIRECT-URI&response_type=code"> Login with Instagram</a> -->
     </div><!-- /.navbar-collapse -->

@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'instagram'
 gem 'figaro'
+gem 'omniauth-instagram'
 
 group :development, :test do
   gem 'better_errors'
