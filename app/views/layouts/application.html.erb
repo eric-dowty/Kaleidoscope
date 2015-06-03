@@ -19,32 +19,16 @@
     <%= render 'layouts/shim' %>
   </head>
 
-
-
-
-
   <body>
 
-    <%= render 'layouts/header' %>
-
-    <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>">
-          <%= message %>
-        </div>
-    <% end %>
+    <%= render partial: 'layouts/header' %>
+    <%= render partial: 'layouts/notices' %>
 
     <%= yield %>
 
+    <%= render partial: 'layouts/footer' %>
+
   </body>
 
-
-
-
-
-  <!-- <footer>
-    <div class="container">
-      <%= render 'layouts/footer' %>
-    </div>
-  </footer> -->
 
 </html>
