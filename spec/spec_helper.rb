@@ -1,4 +1,8 @@
+require 'simplecov'
+SimpleCov.start
+
 RSpec.configure do |config|
+
   config.backtrace_exclusion_patterns << /\.rvm\/gems/
 
   config.expect_with :rspec do |expectations|
