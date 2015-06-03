@@ -3,11 +3,11 @@ $(document).ready(function(){
 L.mapbox.accessToken = $('#map-data').data('token')
 
 
-var geojsonData = $('#map-data').data('geojson')
+window.geojsonData = $('#map-data').data('geojson')
 
-var map = L.mapbox.map('map', 'boomkenster.mbi8c0ap').setView([39.750081, -104.999703], 14);
+var map = L.mapbox.map('map', 'boomkenster.mbi8c0ap').setView([39.750081, -104.999703], 13);
 
-var markerLayer = L.mapbox.featureLayer().addTo(map);
+window.markerLayer = L.mapbox.featureLayer().addTo(map);
 
 markerLayer.setGeoJSON(geojsonData);
 
