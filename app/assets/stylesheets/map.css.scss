@@ -1,8 +1,53 @@
-
-div#map{
-
-  position: absolute;
-  top: 50px;
-  bottom: 60px;
-  width: 60%;
+.instagram-thumb {
+  text-align: left;
+  width: 150px;
 }
+
+.instagram-data {
+  text-align: center;
+}
+
+/* responsive formatting */
+
+@media (min-width: 768px) {
+
+  div#map{
+    position: absolute;
+    top: 50px;
+    bottom: 60px;
+    width: 60%;
+  }
+
+  .instagram-index {
+    margin-left: 60%;
+    max-height: calc(100% - 110px);  
+    overflow: auto;
+  }
+
+  table {
+    table-layout: fixed;
+    word-wrap: break-word;
+  }
+
+}
+
+@media (max-width: 767px) {
+  
+  div#map{
+    display: none;
+  }
+
+  .instagram-index {
+    margin-left: 0%;
+    max-height: calc(100% - 110px);  
+    overflow: auto;
+  }
+
+  table {
+    table-layout: fixed;
+    word-wrap: break-word;
+  }
+
+
+}
+
