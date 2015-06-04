@@ -16,6 +16,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'instagram'
 gem 'figaro'
+gem 'omniauth-instagram'
+gem 'faraday'
 
 group :development, :test do
   gem 'better_errors'
@@ -26,6 +28,7 @@ group :development, :test do
   gem 'capybara'
   gem 'rspec-rails'
   gem 'byebug'
+  gem 'pry'
   gem 'guard-rspec'
   gem 'web-console', '~> 2.0'
   gem 'spring'

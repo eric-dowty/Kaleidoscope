@@ -1,11 +1,11 @@
 <div id='map'></div>
-
 <%= content_tag "div", id: "map-data", data: { geojson: @geojson, token: ENV["MAPBOX_TOKEN"]} do %>
 <% end %>
 
 <div class="instagram-index">
   <table class="table">
     <% count = 0 %>
+    <div id="locator"> Locator</div>
     <% @geojson.each do |instagram| %>
       <tr class='instagram-row' data-index='<%= count %>'>
         <td>
