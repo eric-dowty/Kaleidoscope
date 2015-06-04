@@ -22,7 +22,7 @@ end
               post:      optional_data(instagram)[:text],
               username:  optional_data(instagram)[:username],
               likes:     instagram.likes.count,
-              :'marker-color' => '#63b6e5',
+              :'marker-color' => '#000000' ,
               :'marker-symbol' => 'post',
               :'marker-size' => 'small'
             }
