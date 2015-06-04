@@ -2,15 +2,9 @@ $(document).ready(function(){
 
 L.mapbox.accessToken = $('#map-data').data('token')
  
-
 var geojsonData = $('#map-data').data('geojson')
 var turing = [39.750081, -104.999703];
 
-var map = L.mapbox.map('map', 'boomkenster.mbi8c0ap').setView(turing, 14);
-L.control.locate({
-    setView: true,
-    locateOptions:{maxZoom:14}
-}).addTo(map);
     // L.control.locate({
     //     follow: true
     //     setView: true,
@@ -40,8 +34,15 @@ L.control.locate({
     //         console.log(e);
     //         alert("Location access denied.");
     //     });
+window.geojsonData = $('#map-data').data('geojson')
 
-var markerLayer = L.mapbox.featureLayer().addTo(map);
+window.map = L.mapbox.map('map', 'boomkenster.mbi8c0ap').setView(turing, 13);
+    L.control.locate({
+        setView: true,
+        locateOptions:{maxZoom:14}
+    }).addTo(map);
+
+window.markerLayer = L.mapbox.featureLayer().addTo(map);
 
 markerLayer.setGeoJSON(geojsonData);
 

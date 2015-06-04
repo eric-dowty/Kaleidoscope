@@ -7,21 +7,17 @@
     <% count = 0 %>
     <div id="locator"> Locator</div>
     <% @geojson.each do |instagram| %>
+      <tr class='instagram-row' data-index='<%= count %>'>
+        <td>
+          <%= image_tag(instagram[:properties][:thumbnail]) %>
+        </td>
+        <td>
+          <%= instagram[:properties][:username] %><br><br>
+          <%= instagram[:properties][:post] %><br><br>
+          Likes: <%= instagram[:properties][:likes] %>
+        </td>
+      </tr>
       <% count += 1 %>
-      <div class=<%= "instagram-info#{count}" %>>
-        <tr>
-          <td class="instagram-thumb">
-            <%= image_tag(instagram[:properties][:thumbnail]) %>
-          </td>
-          <td class="instagram-data">
-            <%= instagram[:properties][:username] %><br><br>
-            <%= instagram[:properties][:post] %><br><br>
-            Likes: <%= instagram[:properties][:likes] %>
-          </td>
-          <%= content_tag "div", id: "marker-highlight", data: { geojson: instagram } do %>
-          <% end %>
-        </tr>
-      </div>
     <% end %>
   </table>
 </div>
