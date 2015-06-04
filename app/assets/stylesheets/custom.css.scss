@@ -1,7 +1,3 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
-
 // GLOBAL ////////////////////////////////////////////////////////////////////
 
 html,
@@ -11,7 +7,6 @@ body {
 }
 body {
   text-align: center;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 
 // GLOBAL ////////////////////////////////////////////////////////////////////
@@ -52,11 +47,13 @@ $heading-font-family: 'Coda', Arial, serif;
 $base-font-family: 'Open Sans Condensed', Arial, serif;
 
 
+// BUTTONS ///////////////////////////////////////////////////////////////////
 
 
 // NAVBAR ///////////////////////////////////////////////////////////////////
 .navbar {
   margin: 0 0 0 0;
+  height: 50px;
 }
 
 .navbar-fixed-bottom {

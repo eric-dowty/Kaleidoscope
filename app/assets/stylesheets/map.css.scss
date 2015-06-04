@@ -9,7 +9,7 @@
 }
 
 .glow {
-  border-left: 10px solid rgba(215,43,245,1);
+  border-left: 30px solid rgba(215,43,245,1);
 }
 
 .display-text {
@@ -22,15 +22,15 @@
 
   div#map{
     position: absolute;
-    top: 55px;
-    bottom: 25px;
+    top: 51px;
+    bottom: 0px;
     width: 65%;
     margin-left: 35%
   }
 
   .instagram-index {
     margin-right: 65%;
-    max-height: calc(100% - 25px);  
+    max-height: calc(100%);  
     overflow: auto;
   }
 
@@ -49,7 +49,7 @@
 
   .instagram-index {
     margin-left: 0%;
-    max-height: calc(100% - 25px);  
+    max-height: calc(100%);  
     overflow: auto;
   }
 
@@ -57,7 +57,5 @@
     table-layout: fixed;
     word-wrap: break-word;
   }
-
-
 }
 

@@ -42,16 +42,34 @@ window.map = L.mapbox.map('map', 'boomkenster.mbi8c0ap').setView(turing, 13);
         locateOptions:{maxZoom:14}
     }).addTo(map);
 
+window.highlightLayer = L.mapbox.featureLayer().addTo(map); 
 window.markerLayer = L.mapbox.featureLayer().addTo(map);
 
-markerLayer.setGeoJSON(geojsonData);
+  markerLayer.setGeoJSON(geojsonData);
 
-markerLayer.on('mouseover', function(e) {
+  markerLayer.on('mouseover', function(e) {
     var marker  = e.layer;
+    popUpAll(marker);
+  });
+
+  markerLayer.on('mouseout', function(e) {
+    e.layer.closePopup();
+  });
+
+
+  highlightLayer.on('mouseover', function(z) {
+    var marker  = z.layer;
+    popUpAll(marker);
+  });
+
+  highlightLayer.on('mouseout', function(z) {
+    z.layer.closePopup();
+  });
+
+  var popUpAll = function(marker){
     var popupContent = '<a target="_blank" class="popup" href="#"> </a>' +
                                 '<p> <img class="popup-pic" src="' + marker.feature.properties.thumbnail + '"/> <br>' +
-                                        marker.feature.properties.post + "<br>Likes: " +
-                                        marker.feature.properties.likes +
+                                        + "<br>Likes: " + marker.feature.properties.likes +
                                 '</p>'
     // http://leafletjs.com/reference.html#popup
     marker.bindPopup(popupContent,{
@@ -60,11 +78,6 @@ markerLayer.on('mouseover', function(e) {
     });
 
     marker.openPopup();
-
-  });
-
-  markerLayer.on('mouseout', function(e) {
-    e.layer.closePopup();
-  });
+  }
 
 });
