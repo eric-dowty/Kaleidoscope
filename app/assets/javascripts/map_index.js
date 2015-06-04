@@ -20,7 +20,7 @@ $(document).ready(function(){
 
   var resetMarker = function(index) {
     var instagramMarker = geojsonData[index]
-    instagramMarker.properties['marker-color'] = '#63b6e5';
+    instagramMarker.properties['marker-color'] = '#000000';
     instagramMarker.properties['marker-size']  = 'small';
   }
 
