@@ -93,6 +93,11 @@ $secondary-color: rgba(255,255,255,1.0);  // white
   background-color: $primary-color;
 }
 
+.img-thumbnail {
+  max-width: 60px;
+  margin-top: 5px;
+  }
+
 .navbar-inverse .navbar-toggle  {
   border-color: $white;
   // background-color: $white-trans;
