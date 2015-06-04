@@ -34,7 +34,7 @@ $blue-med:  #337ab7;
 $blue-dark: rgba(46,109,164,0.3);
 
 
-$primary-color:   rgba(46,109,164,0.7);   // blue
+$primary-color:   rgba(215,43,245,1.0);   // hot-purple
 $secondary-color: rgba(255,255,255,1.0);  // white
 
 
@@ -48,8 +48,8 @@ $secondary-color: rgba(255,255,255,1.0);  // white
 
 // TYPOGRAPHY //////////////////////////////////////////////////////////////
 
-// TYPOGRAPHY //////////////////////////////////////////////////////////////
-
+$heading-font-family: 'Coda', Arial, serif;
+$base-font-family: 'Open Sans Condensed', Arial, serif;
 
 
 
@@ -59,17 +59,18 @@ $secondary-color: rgba(255,255,255,1.0);  // white
   margin: 0 0 0 0;
 }
 
-.navbar-inverse {
+.navbar-fixed-bottom {
+  min-height: 10px;
   background-color: $primary-color;
-  border: none;
 }
+
 
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
   border-color: $secondary-color;
 }
 
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-  background-color: $primary-color;
+  /*background-color: $primary-color;*/
   color: #fff;
 }
 
@@ -135,8 +136,7 @@ body {
   height: 60px;
   background-color: $blue-med;
 }
-
-
+ 
 /* Custom page CSS
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */

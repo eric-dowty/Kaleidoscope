@@ -1,6 +1,7 @@
 .instagram-thumb {
   text-align: left;
   width: 150px;
+  margin-left: 20px;
 }
 
 .instagram-data {
@@ -8,7 +9,11 @@
 }
 
 .glow {
-  border: 2px solid blue;
+  border-left: 10px solid rgba(215,43,245,1);
+}
+
+.display-text {
+  padding: 20px;
 }
 
 /* responsive formatting */
@@ -17,14 +22,15 @@
 
   div#map{
     position: absolute;
-    top: 50px;
-    bottom: 60px;
-    width: 60%;
+    top: 55px;
+    bottom: 25px;
+    width: 65%;
+    margin-left: 35%
   }
 
   .instagram-index {
-    margin-left: 60%;
-    max-height: calc(100% - 110px);  
+    margin-right: 65%;
+    max-height: calc(100% - 25px);  
     overflow: auto;
   }
 
@@ -43,7 +49,7 @@
 
   .instagram-index {
     margin-left: 0%;
-    max-height: calc(100% - 110px);  
+    max-height: calc(100% - 25px);  
     overflow: auto;
   }
 
