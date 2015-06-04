@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'maps#index'
   # get 'home#index'
   get '/instagram', to: 'home#instagram'
   resources :maps, only: [:index, :show]
