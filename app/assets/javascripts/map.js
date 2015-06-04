@@ -5,7 +5,7 @@ L.mapbox.accessToken = $('#map-data').data('token')
 
 window.geojsonData = $('#map-data').data('geojson')
 
-var map = L.mapbox.map('map', 'boomkenster.mbi8c0ap').setView([39.750081, -104.999703], 13);
+window.map = L.mapbox.map('map', 'boomkenster.mbi8c0ap').setView([39.750081, -104.999703], 13);
 
 window.markerLayer = L.mapbox.featureLayer().addTo(map);
 
