@@ -3,14 +3,16 @@
 <% end %>
 
 <div class="instagram-index">
+
   <table class="table">
     <% count = 0 %>
-    <div id="locator"> Locator</div>
     <% @geojson.each do |instagram| %>
       
       <tr class='instagram-row' data-index='<%= count %>'>
         <td class="instagram-thumb">
-          <%= image_tag(instagram[:properties][:thumbnail]) %>
+          <div class="display-thumb"> 
+            <%= image_tag(instagram[:properties][:thumbnail]) %>
+          </div>
         </td>
         <td class="instagram-data">
           <div class="display-text"> 
