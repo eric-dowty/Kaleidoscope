@@ -1,25 +1,31 @@
 $(document).ready(function(){
 
-  $(".instagram-index").scroll(function(){
-    var x = ($(window).width()*0.6) + 75
-    var element = document.elementFromPoint(x, 220);
-    if ( element.nodeName === 'TD' && element.getAttribute('class').replace(/[0-9]/g, '') === 'instagram-thumb') {
-      if ( $(element).parent().prev().hasClass('danger') ) {
-        $(element).parent().prev().removeClass('danger')
-      }
-      var instagramGeo = $(element).children('#marker-highlight').data('geojson')
-      $(element).parent().addClass('danger')  
-      var index = element.getAttribute('class').match(/\d+/)[0]
-      setMarkerColor(parseInt(index))
-    }
+  var highlightLayer = L.mapbox.featureLayer().addTo(map); 
+
+  $('.instagram-row').mouseenter(function() {
+    $(this).addClass('glow')
+    highlightMarker($(this).data('index'))
   });
 
-  var setMarkerColor = function(index) {
-    geojsonData[index].properties['marker-color'] = "#f86767";
-    geojsonData[index].properties['marker-size']  = 'large';
-    geojsonData[index-1].properties['marker-color'] = '#63b6e5';
-    geojsonData[index-1].properties['marker-size']  = 'small';
-    markerLayer.setGeoJSON(geojsonData);
+  $('.instagram-row').mouseleave(function() {
+    $(this).removeClass('glow')
+    resetMarker($(this).data('index'))
+  });
+
+  var highlightMarker = function(index) {
+    var instagramMarker = geojsonData[index]
+    instagramMarker.properties['marker-color'] = "#f86767";
+    instagramMarker.properties['marker-size']  = 'large';
+    console.log(instagramMarker)
+    highlightLayer.setGeoJSON(instagramMarker);
+  }
+
+  var resetMarker = function(index) {
+    var instagramMarker = geojsonData[index]
+    instagramMarker.properties['marker-color'] = '#63b6e5';
+    instagramMarker.properties['marker-size']  = 'small';
+    highlightLayer.setGeoJSON(
+      instagramMarker);
   }
 
 });
