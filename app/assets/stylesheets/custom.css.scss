@@ -9,14 +9,8 @@ body {
   text-align: center;
 }
 
-// GLOBAL ////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
 // COLORS ///////////////////////////////////////////////////////////////////
+
 $white: rgba(255,255,255,1);
 $white-trans: rgba(255,255,255,0.5);
 
@@ -32,15 +26,6 @@ $blue-dark: rgba(46,109,164,0.3);
 $primary-color:   rgba(215,43,245,1.0);   // hot-purple
 $secondary-color: rgba(255,255,255,1.0);  // white
 
-
-// COLORS ///////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
 // TYPOGRAPHY //////////////////////////////////////////////////////////////
 
 $heading-font-family: 'Coda', Arial, serif;
@@ -53,14 +38,8 @@ $base-font-family: 'Open Sans Condensed', Arial, serif;
 // NAVBAR ///////////////////////////////////////////////////////////////////
 .navbar {
   margin: 0 0 0 0;
-  height: 50px;
+  height: 20px;
 }
-
-.navbar-fixed-bottom {
-  min-height: 10px;
-  background-color: $primary-color;
-}
-
 
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
   border-color: $secondary-color;
@@ -108,32 +87,7 @@ $base-font-family: 'Open Sans Condensed', Arial, serif;
 .navbar-inverse .navbar-toggle:focus  {
   background-color: $white-trans;
 }
-// NAVBAR ///////////////////////////////////////////////////////////////////
 
-
-
-
-
-
- // Footer////////////////////////////////////////////////////////////////////
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 10px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: $blue-med;
-}
- 
 /* Custom page CSS
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
@@ -154,4 +108,71 @@ code {
   font-size: 80%;
 }*/
 
-/*Footer/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+// MAP INDEX PAGE /////////////////////////////////////////////////
+
+.instagram-index {
+  position: absolute;
+  margin-top: -20px;
+}
+
+.instagram-thumb {
+  text-align: left;
+  width: 150px;
+  margin-left: 20px;
+}
+
+.instagram-data {
+  text-align: center;
+}
+
+.glow {
+  border-left: 30px solid rgba(215,43,245,1);
+}
+
+.display-text {
+  padding: 20px;
+}
+
+/* responsive formatting */
+
+@media (min-width: 768px) {
+
+  div#map{
+    position: absolute;
+    top: 50px;
+    bottom: 0px;
+    width: 65%;
+    margin-left: 35%
+  }
+
+  .instagram-index {
+    margin-right: 65%;
+    max-height: 100%;  
+    overflow: auto;
+  }
+
+  table {
+    table-layout: fixed;
+    word-wrap: break-word;
+  }
+
+}
+
+@media (max-width: 767px) {
+  
+  div#map{
+    display: none;
+  }
+
+  .instagram-index {
+    margin-left: 0%;
+    max-height: calc(100%);  
+    overflow: auto;
+  }
+
+  table {
+    table-layout: fixed;
+    word-wrap: break-word;
+  }
+}
+

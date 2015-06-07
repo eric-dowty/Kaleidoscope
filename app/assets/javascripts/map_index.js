@@ -12,6 +12,8 @@ $(document).ready(function(){
 
   var highlightMarker = function(index) {
     var instagramMarker = geojsonData[index]
+    console.log(instagramMarker)
+    $(instagramMarker).css('z-index', '999')
     instagramMarker.properties['marker-color'] = "#B502CD";
     instagramMarker.properties['marker-size']  = 'large';
     markerLayer.setGeoJSON(geojsonData);
