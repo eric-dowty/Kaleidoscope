@@ -13,9 +13,10 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
 
-      </ul>
+      <!-- <ul class="nav navbar-nav">
+      </ul> -->
+
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Enter a location...">
@@ -25,26 +26,26 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">MoreThoughts <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Account</a></li>
-             <li class="divider"></li>
-            <li><a href="#">Recent Searches</a></li>
-             <li class="divider"></li>
-            <li><a href="#">Trending</a></li>
-          </ul>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">MoreThoughts <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Account</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Recent Searches</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Trending</a></li>
+        </ul>
         </li>
       </ul>
-    <% if current_user %>
-    <div>
-    <h2 class="nav navbar-nav navbar-right navbar-brand"> Welcome <%= JSON.parse(current_user.username)[0] %> </h2>
-    <%= image_tag current_user.image_url, class: "img-circle img-thumbnail" %>
-    <%= link_to "Logout", logout_path, method: :delete, class: "btn btn-lg btn-default btn-home" %>
-    </div>
 
-    <% else %>
-        <div class= "nav navbar-nav navbar-right"><%= link_to "Login with Instagram", "auth/instagram", class: "btn btn-default"  %> </div>
-    <% end %>
+      <% if current_user %>
+        <div>
+          <h2 class="nav navbar-nav navbar-right navbar-brand"> Welcome <%= JSON.parse(current_user.username)[0] %> </h2>
+          <%= image_tag current_user.image_url, class: "img-circle img-thumbnail" %>
+          <%= link_to "Logout", logout_path, method: :delete, class: "btn btn-lg btn-default btn-home" %>
+        </div>
+      <% else %>
+          <div class= "nav navbar-nav navbar-right"><%= link_to "Login with Instagram", "auth/instagram", class: "btn btn-default"  %> </div>
+      <% end %>
 
     </div><!-- /.navbar-collapse -->
 </div>
