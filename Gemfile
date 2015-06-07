@@ -28,7 +28,6 @@ group :development, :test do
   gem 'capybara'
   gem 'rspec-rails'
   gem 'byebug'
-  gem 'pry'
   gem 'guard-rspec'
   gem 'web-console', '~> 2.0'
   gem 'spring'
