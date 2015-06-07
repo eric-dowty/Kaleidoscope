@@ -54,6 +54,7 @@ $base-font-family: 'Open Sans Condensed', Arial, serif;
 }
 
 .instagram-likes {
+  color: $light-gray;
   font-family: $base-font-family;
   font-size: 1.3em;
   font-style: italic;
@@ -86,57 +87,43 @@ $base-font-family: 'Open Sans Condensed', Arial, serif;
 
 
 // NAVBAR ///////////////////////////////////////////////////////////////////
+
 .navbar {
-  margin: 0 0 0 0;
-  height: 20px;
-}
+  border: none;
+  border-radius: 0px;
+  // margin: 0 0 0 0;
 
-.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-  border-color: $secondary-color;
-}
+  .navbar-form {
+    margin: 0 0 0 0;
 
-.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-  /*background-color: $primary-color;*/
-  color: #fff;
-}
-
-.navbar-inverse .navbar-nav .open .dropdown-menu .divider {
-  background-color: $secondary-color;
-}
-
-.navbar-inverse .navbar-brand {
-  color: $secondary-color;
-}
-
-.navbar-inverse .navbar-nav > li > a {
-  color: $secondary-color;
-}
-
-.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
-  color: $secondary-color;
-}
-
-.dropdown-menu  {
-  background-color: $primary-color;
-}
-
-.img-thumbnail {
-  width: 50px;
-  margin-top: 5px;
+    .form-group {
+      display: inline-block;
+      margin-bottom: 0;
+      vertical-align: top;
+    }
   }
 
-.navbar-inverse .navbar-toggle  {
-  border-color: $white;
-  // background-color: $white-trans;
+  .navbar-collapse {
+    // margin: 15px 0 0 0;
+    padding: 8px 20px 0 0;
+  }
+
+  .navbar-nav {
+    li {
+      a {
+        padding: 7px 15px 10px 10px;
+      }
+
+      .dropdown-menu {
+        margin-top: 5px;
+      }
+    }
+  }
+
 }
 
-.navbar-inverse .navbar-toggle:hover {
-  background-color: $white-trans;
-}
 
-.navbar-inverse .navbar-toggle:focus  {
-  background-color: $white-trans;
-}
+
 
 
 
