@@ -1,7 +1,6 @@
 class InstagramData
-
-def self.get_json_map_data
-  InstagramService.get_instagrams.map do |instagram|
+def self.get_json_map_data(location: { lat: "39.7392", lon: "-104.9903"} )
+  InstagramService.get_instagrams(location).map do |instagram|
     geo_data(instagram)
   end
 end
