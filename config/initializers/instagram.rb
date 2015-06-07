@@ -7,4 +7,4 @@ config.client_secret = ENV["INSTAGRAM_SECRET"]
 
 end
 
-CALLBACK_URL = "http://localhost:8080/instagram/callback"
+CALLBACK_URL = "https://thoughtcloud-.herokuapp.com/maps"
