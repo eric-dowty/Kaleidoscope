@@ -7,7 +7,7 @@
   <table class="table">
     <% count = 0 %>
     <% @geojson.each do |instagram| %>
-      
+
       <tr class='instagram-row' data-index='<%= count %>'>
         <td class="instagram-thumb">
           <%= image_tag(instagram[:properties][:thumbnail]) %><br>
@@ -15,9 +15,15 @@
             <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
           </button>
           <div class="collapse" id="<%= "post-data#{count}" %>">
+            <div class="instagram-username">
               <%= instagram[:properties][:username] %><br>
+            </div>
+            <div class="instagram-post">
               <%= instagram[:properties][:post] %><br>
-              Likes: <%= instagram[:properties][:likes] %>
+            </div>
+            <div class="instagram-likes">
+              Likes: <%= instagram[:properties][:likes] %>              
+            </div>
           </div>
           <%  %>
         </td>
