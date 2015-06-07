@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 L.mapbox.accessToken = $('#map-data').data('token')
  
- var geojsonData = {}
+window.geojsonData = {}
 
 var createPoints = function(coordinates){
   var url = '/maps.json'
@@ -38,9 +38,7 @@ var createPoints = function(coordinates){
 
   var popUpAll = function(marker){
     var popupContent = '<a target="_blank" class="popup" href="#"> </a>' +
-                                '<p> <img class="popup-pic" src="' + marker.feature.properties.thumbnail + '"/> <br>' +
-                                        + "<br>Likes: " + marker.feature.properties.likes +
-                                '</p>'
+                                '<p> <img class="popup-pic" src="' + marker.feature.properties.thumbnail + '"/> </p>'
     // http://leafletjs.com/reference.html#popup
     marker.bindPopup(popupContent,{
         closeButton: false,
@@ -54,11 +52,16 @@ var createPoints = function(coordinates){
 var turing = [39.750081, -104.999703];
 
 
-window.map = L.mapbox.map('map', 'boomkenster.mbi8c0ap').setView(turing, 13);
-    L.control.locate({
-        setView: true,
-        locateOptions:{maxZoom:13}
-    }).addTo(map);
+window.map = L.mapbox.map('map', 'boomkenster.mbi8c0ap')
+
+map.setView(turing, 13);
+
+$("#location-btn").on('click', function(){
+    map.locate();
+});
+
+map.on('locationfound', function(e) {
+});
 
 var popup = L.popup();
 
