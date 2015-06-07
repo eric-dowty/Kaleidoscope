@@ -125,7 +125,11 @@ code {
   text-align: center;
 }
 
-.glow {
+.row-one-higlight {
+  border-left: 17px solid rgba(215,43,245,1);
+}
+
+.row-highlight {
   border-left: 30px solid rgba(215,43,245,1);
 }
 
@@ -147,7 +151,7 @@ code {
 
   .instagram-index {
     margin-right: 65%;
-    max-height: 100%;  
+    max-height: calc(100% - 50px);  
     overflow: auto;
   }
 
@@ -166,7 +170,7 @@ code {
 
   .instagram-index {
     margin-left: 0%;
-    max-height: calc(100%);  
+    max-height: calc(100%-25);  
     overflow: auto;
   }
 
