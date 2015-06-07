@@ -12,7 +12,7 @@ var createPoints = function(coordinates){
 
     $.get(url, function(data) {
       window.markerLayer = L.mapbox.featureLayer().addTo(map);
-
+      window.geojsonData = data
       markerLayer.setGeoJSON(data);
 
       markerLayer.on('mouseover', function(e) {
@@ -67,6 +67,7 @@ function onMapClick(e) {
         .setLatLng(e.latlng)
         .setContent("Loading up the pix!")
         .openOn(map);
+        map.removeLayer(markerLayer);
         createPoints(e.latlng);
 }
 map.on('click', onMapClick);
