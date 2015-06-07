@@ -44,8 +44,8 @@ window.map = L.mapbox.map('map', 'boomkenster.mbi8c0ap').setView(turing, 13);
         locateOptions:{maxZoom:13}
     }).addTo(map);
 
-window.highlightLayer = L.mapbox.featureLayer().addTo(map); 
 window.markerLayer = L.mapbox.featureLayer().addTo(map);
+window.highlightLayer = L.mapbox.featureLayer().addTo(map); 
 
   markerLayer.setGeoJSON(geojsonData);
 
