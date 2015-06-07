@@ -113,6 +113,7 @@ code {
 .instagram-index {
   position: absolute;
   margin-top: -20px;
+  max-height: calc(100% - 50px);  
 }
 
 .instagram-thumb {
@@ -151,7 +152,6 @@ code {
 
   .instagram-index {
     margin-right: 65%;
-    max-height: calc(100% - 50px);  
     overflow: auto;
   }
 
@@ -170,7 +170,6 @@ code {
 
   .instagram-index {
     margin-left: 0%;
-    max-height: calc(100%-25);  
     overflow: auto;
   }
 
