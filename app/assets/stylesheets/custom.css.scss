@@ -34,6 +34,22 @@ $base-font-family: 'Open Sans Condensed', Arial, serif;
 
 // BUTTONS ///////////////////////////////////////////////////////////////////
 
+.btn-collapse {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: black;
+  .glyphicon {
+    color: white;
+  }
+}
+
+.btn-collapse:focus, .btn-collapse:active {
+  outline: none !important; 
+}
+
+.btn-collapse:hover {
+  box-shadow: 0px 0px 15px $primary-color;
+}
 
 // NAVBAR ///////////////////////////////////////////////////////////////////
 .navbar {
@@ -88,26 +104,6 @@ $base-font-family: 'Open Sans Condensed', Arial, serif;
   background-color: $white-trans;
 }
 
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-
-/*body > .container {
-  padding: 15px 15px 0;
-}
-.container .text-muted {
-  margin: 20px 0;
-}
-
-.footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-code {
-  font-size: 80%;
-}*/
-
 // MAP INDEX PAGE /////////////////////////////////////////////////
 
 .instagram-index {
@@ -117,9 +113,7 @@ code {
 }
 
 .instagram-thumb {
-  text-align: left;
-  width: 150px;
-  margin-left: 20px;
+  width: 90%;
 }
 
 .instagram-data {
@@ -128,10 +122,20 @@ code {
 
 .row-one-higlight {
   border-left: 17px solid rgba(215,43,245,1);
+  
+  td {
+    display: block;
+    margin-right: 30px;
+  }
 }
 
 .row-highlight {
   border-left: 30px solid rgba(215,43,245,1);
+  
+  td {
+    display: block;
+    margin-right: 30px;
+  }
 }
 
 .display-text {
@@ -140,18 +144,18 @@ code {
 
 /* responsive formatting */
 
-@media (min-width: 768px) {
+@media (min-width: 711px) {
 
   div#map{
     position: absolute;
     top: 50px;
     bottom: 0px;
-    width: 65%;
-    margin-left: 35%
+    width: 75%;
+    margin-left: 25%
   }
 
   .instagram-index {
-    margin-right: 65%;
+    margin-right: 75%;
     overflow: auto;
   }
 
@@ -162,7 +166,7 @@ code {
 
 }
 
-@media (max-width: 767px) {
+@media (max-width: 710px) {
   
   div#map{
     display: none;
@@ -178,4 +182,3 @@ code {
     word-wrap: break-word;
   }
 }
-

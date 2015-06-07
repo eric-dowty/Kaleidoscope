@@ -10,16 +10,16 @@
       
       <tr class='instagram-row' data-index='<%= count %>'>
         <td class="instagram-thumb">
-          <div class="display-thumb"> 
-            <%= image_tag(instagram[:properties][:thumbnail]) %>
+          <%= image_tag(instagram[:properties][:thumbnail]) %><br>
+          <button class="btn btn-collapse" type="button" data-toggle="collapse" data-target="<%= "#post-data#{count}" %>" aria-expanded="false" aria-controls="<%= "post-data#{count}" %>">
+            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+          </button>
+          <div class="collapse" id="<%= "post-data#{count}" %>">
+              <%= instagram[:properties][:username] %><br>
+              <%= instagram[:properties][:post] %><br>
+              Likes: <%= instagram[:properties][:likes] %>
           </div>
-        </td>
-        <td class="instagram-data">
-          <div class="display-text"> 
-            <%= instagram[:properties][:username] %><br><br>
-            <p><%= instagram[:properties][:post] %></p><br><br>
-            Likes: <%= instagram[:properties][:likes] %>
-          </div>
+          <%  %>
         </td>
       </tr>
 
