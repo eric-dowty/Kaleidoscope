@@ -1,7 +1,7 @@
 class MapsController < ApplicationController
   
   def index
-    @geojson = if params[:lat] && params[:lon]
+    @mapdata = if params[:lat] && params[:lon]
       InstagramData.get_json_map_data(location: { lat: params[:lat].to_s, lon: params[:lon].to_s })
     else
      InstagramData.get_json_map_data
@@ -9,7 +9,7 @@ class MapsController < ApplicationController
 
     respond_to do |format|
       format.html {}
-      format.json { render json: @geojson }
+      format.json { render json: @mapdata.geojson }
     end
   end
 
