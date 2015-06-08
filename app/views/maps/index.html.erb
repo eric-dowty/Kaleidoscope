@@ -5,32 +5,7 @@
 
 <div class="instagram-index">
 
-  <table class="table">
-    <% count = 0 %>
-    <% @mapdata.geojson.each do |instagram| %>
-
-      <tr class='instagram-row' data-index='<%= count %>'>
-        <td class="instagram-thumb">
-          <%= image_tag(instagram[:properties][:thumbnail]) %><br>
-          <button class="btn btn-collapse" type="button" data-toggle="collapse" data-target="<%= "#post-data#{count}" %>" aria-expanded="false" aria-controls="<%= "post-data#{count}" %>">
-            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-          </button>
-          <div class="collapse" id="<%= "post-data#{count}" %>">
-            <div class="instagram-username">
-              <%= instagram[:properties][:username] %><br>
-            </div>
-            <div class="instagram-post">
-              <%= instagram[:properties][:post] %><br>
-            </div>
-            <div class="instagram-likes">
-              Likes: <%= instagram[:properties][:likes] %>
-            </div>
-          </div>
-          <%  %>
-        </td>
-      </tr>
-
-      <% count += 1 %>
-    <% end %>
+  <table class="table" id="instagram-table">
+   
   </table>
 </div>
