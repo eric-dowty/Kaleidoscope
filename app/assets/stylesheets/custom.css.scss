@@ -66,6 +66,21 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 20px 20px 20px;
 }
 
+.popup-decor{
+  color: $primary-color;
+  color-background: black;
+  font-family: $base-font-family;
+  font-style: italic;
+  font-weight: 300;
+  margin: none;
+}
+
+.left-text{
+  margin-top: none;
+  padding-top: none;
+  margin-left: 20%;
+}
+
 
 
 
@@ -82,7 +97,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #location-btn {
   color: white;
-  padding-top: 15px;
+  padding-top: 0px;
 }
 
 #location-btn a {
@@ -206,13 +221,14 @@ h1, h2, h3, h4, h5, h6 {
   padding: 20px;
 }
 
+
 /* responsive formatting */
 
 @media (min-width: 711px) {
 
   div#map{
     position: absolute;
-    top: 50px;
+    top: 67px;
     bottom: 0px;
     width: 75%;
     margin-left: 25%

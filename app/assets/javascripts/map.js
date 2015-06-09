@@ -111,7 +111,7 @@ var popup = L.popup();
 var onMapClick = function(e){
     popup
         .setLatLng(e.latlng)
-        .setContent("Loading up the pix!")
+        .setContent("<p class='instagram-likes'>Focusing your kaleidoscope</p>")
         .openOn(map);
         markerLayer.clearLayers()
         createPoints(e.latlng);
