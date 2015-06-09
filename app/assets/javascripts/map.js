@@ -23,7 +23,7 @@ var rowHTML = function(index, data) {
 var addRows = function(data){
   $('#instagram-table').html("");
   var htmlData = ""
-  for(i=1; i<data.length; i++){
+  for(i=0; i<data.length; i++){
     htmlData = htmlData + rowHTML(i, data[i])
   };
   $("#instagram-table").append(htmlData)
@@ -32,7 +32,7 @@ var addRows = function(data){
 var mapHighlight = function(data){
 
   $(".instagram-row").mouseenter(function() {
-    if ($(this).data('index') === 1 ){
+    if ($(this).data('index') === 0 ){
       $(this).addClass('row-one-higlight')  
     } else {
       $(this).addClass('row-highlight')
@@ -41,7 +41,7 @@ var mapHighlight = function(data){
   });
 
   $('.instagram-row').mouseleave(function() {
-    if ($(this).data('index') === 1 ){
+    if ($(this).data('index') === 0 ){
       $(this).removeClass('row-one-higlight')  
     } else {
       $(this).removeClass('row-highlight')
@@ -80,7 +80,8 @@ var createPoints = function(coordinates){
   
   addRows(data)
   mapHighlight(data)
-  
+  popularHashes(data)
+
   markerLayer.setGeoJSON(data);
   });
 
@@ -115,6 +116,64 @@ var onMapClick = function(e){
         .openOn(map);
         markerLayer.clearLayers()
         createPoints(e.latlng);
+}
+
+var sortArrayByKeys = function(inputarray) {
+  var arraykeys=[];
+  for(var k in inputarray) {arraykeys.push(k);}
+  arraykeys.sort();
+
+  var outputarray=[];
+  for(var i=0; i<arraykeys.length; i++) {
+      outputarray[arraykeys[i]]=inputarray[arraykeys[i]];
+  }
+  return outputarray;
+}
+
+var popularHashes = function(data){
+
+  var stringifiedPosts = ""
+  for(i=0; i<data.length; i++){
+    stringifiedPosts = stringifiedPosts + " " + data[i]["properties"]["post"]
+  }
+  
+  var hashes_and_all = stringifiedPosts.split(" ");
+  var hashes = []
+  for(i=0; i<hashes_and_all.length; i++){
+    if(hashes_and_all[i].charAt(0) === "#"){
+      hashes.push(hashes_and_all[i].toLowerCase())
+    }
+  }
+  
+  var hashCount = {}
+  for(i=0; i<hashes.length; i++){
+    if(hashCount[hashes[i]]){
+      hashCount[hashes[i]] = hashCount[hashes[i]] + 1
+    } else {
+      hashCount[hashes[i]] = 1
+    }
+  }
+
+  var mostLikes = 0
+  var keys = []
+  Object.keys(hashCount).forEach(function (key) { 
+    if(hashCount[key] > mostLikes){
+      mostLikes = hashCount[key]
+    }
+    keys.push(key)
+  })
+
+  var mostPopular = []
+  for(i=0; mostPopular.length<5; i++){
+    if(i === keys.length-1 ){
+      i = 0
+      mostLikes = mostLikes - 1
+    }
+    if(hashCount[keys[i]] === mostLikes){
+      mostPopular.push(keys[i])
+    }
+  }
+  return mostPopular
 }
 
 map.on('click', onMapClick);
