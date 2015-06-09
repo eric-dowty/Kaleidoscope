@@ -51,14 +51,14 @@ var mapHighlight = function(data){
 
   var highlightMarker = function(index) {
     var instagramMarker = data[index]
-    instagramMarker.properties['marker-color'] = "#B502CD";
+    instagramMarker.properties['marker-color'] = "#5D2A7D";
     instagramMarker.properties['marker-size']  = 'large';
     markerLayer.setGeoJSON(data);
   }
 
   var resetMarker = function(index) {
     var instagramMarker = data[index]
-    instagramMarker.properties['marker-color'] = '#000000';
+    instagramMarker.properties['marker-color'] = '#8F8397';
     instagramMarker.properties['marker-size']  = 'small';
   }
 }

@@ -40,7 +40,7 @@ class InstagramData
             post:      optional_data(instagram)[:text],
             username:  optional_data(instagram)[:username],
             likes:     instagram.likes.count,
-            :'marker-color' => '#000000' ,
+            :'marker-color' => '#8F8397' ,
             :'marker-symbol' => 'camera',
             :'marker-size' => 'small'
           }

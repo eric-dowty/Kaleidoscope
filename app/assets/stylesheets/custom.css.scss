@@ -28,7 +28,7 @@ $blue-med:  #337ab7;
 $blue-dark: rgba(46,109,164,0.3);
 
 
-$primary-color:   rgba(215,43,245,1.0);   // hot-purple
+$primary-color:   rgba(93,42,125,1.0);   // dark-purple
 $secondary-color: rgba(255,255,255,1.0);  // white
 
 
@@ -185,7 +185,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .row-one-higlight {
-  border-left: 17px solid rgba(215,43,245,1);
+  border-left: 17px solid $primary-color;
 
   td {
     display: block;
@@ -194,7 +194,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .row-highlight {
-  border-left: 30px solid rgba(215,43,245,1);
+  border-left: 30px solid $primary-color;
 
   td {
     display: block;
