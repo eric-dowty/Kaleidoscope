@@ -15,10 +15,12 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <div class="navbar-left" id="location-btn">
-          <a href=""><em>Find my location</em></a>
+      <h6 class="left-text"> Point - Click - View <br> See Most Recent Posts! </h6>
       </div>
 
       <ul class="nav navbar-nav navbar-right">
+        <button ="btn btn-default"><em>Find my location</em></button>
+       
         <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Popular Tags <span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
@@ -33,7 +35,7 @@
         </li>
       </ul>
 
-      <% if current_user %>
+<!--       <% if current_user %>
         <ul class="nav navbar-nav navbar-right">
           <li> <%= image_tag current_user.image_url, class: "img-circle img-thumbnail" %> </li>
           <li><h2> Welcome <%= JSON.parse(current_user.username)[0] %> </h2></li>
@@ -41,7 +43,7 @@
         </ul>
       <% else %>
         <div class="nav navbar-nav navbar-right"><%= link_to "Login with Instagram", "auth/instagram", class: "btn btn-default"  %> </div>
-      <% end %>
+      <% end %> -->
 
     </div><!-- /.navbar-collapse -->
 </div>
