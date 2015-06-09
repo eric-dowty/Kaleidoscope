@@ -141,9 +141,23 @@ $base-font-family: 'Open Sans Condensed', Arial, serif;
         margin-top: 5px;
       }
     }
+
+    .navbar-right {
+      h2 {
+        font-size: 4em;
+      }
+    }
+
+  }
+
+  .img-circle {
+    // border-radius: 50%;
+    max-height: 45px;
   }
 
 }
+
+
 
 
 // MAP INDEX PAGE /////////////////////////////////////////////////
