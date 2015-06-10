@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 
 //Set mapbox map view
@@ -112,12 +113,22 @@ var createPoints = function(coordinates){
 
 };
 
+var geolocate = document.getElementById('geolocate');
 
-$("#location-btn").on('click', function(){
-    map.locate();
-});
+if (!navigator.geolocation) {
+    geolocate.innerHTML = 'Geolocation is not available';
+} else {
+    geolocate.onclick = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        map.locate();
+    };
+}
 
 map.on('locationfound', function(e) {
+  map.setView(e.latlng, 13);
+  markerLayer.clearLayers()
+  createPoints(e.latlng);
 });
 
 var popup = L.popup();
