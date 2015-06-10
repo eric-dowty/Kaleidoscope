@@ -172,7 +172,11 @@ h1, h2, h3, h4, h5, h6 {
   //   }
     .dropdown-menu {
       margin-top: 5px;
+      background-color: black;
+      text-align: center;
     }
+
+
 
   li {
     a {
@@ -209,7 +213,7 @@ h1, h2, h3, h4, h5, h6 {
     // position: static;
     // float: none;
     // width: auto;
-    margin: 0 10% 0 10%;
+    // margin: 0 10% 0 10%;
     // background-color: transparent;
     // border: 0;
     // box-shadow: none;
