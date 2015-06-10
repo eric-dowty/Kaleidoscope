@@ -4,7 +4,7 @@ class MapsController < ApplicationController
     @mapdata = if params[:lat] && params[:lon]
       InstagramData.get_json_map_data(location: { lat: params[:lat].to_s, lon: params[:lon].to_s })
     else
-     InstagramData.get_json_map_data
+      InstagramData.get_json_map_data
     end
 
     respond_to do |format|
