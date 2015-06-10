@@ -24,6 +24,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'simplecov', :require => false, :group => :test
   gem 'pry'
+  gem 'vcr'
   gem 'launchy'
   gem 'capybara'
   gem 'rspec-rails'
