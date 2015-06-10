@@ -23,27 +23,10 @@
        
         <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Popular Tags <span class="caret"></span></a>
-        <ul class="dropdown-menu" role="menu">
-          <% if @mapdata.hashes != nil %>
-            <% @mapdata.hashes.each do |key, value| %>
-              <li> <%= key %></li>
-            <% end %>
-          <% else %>
-            <li><em>Select location...</em></li>
-          <% end %>
+        <ul class="dropdown-menu popular-hashes" role="menu">
         </ul>
         </li>
       </ul>
-
-<!--       <% if current_user %>
-        <ul class="nav navbar-nav navbar-right">
-          <li> <%= image_tag current_user.image_url, class: "img-circle img-thumbnail" %> </li>
-          <li><h2> Welcome <%= JSON.parse(current_user.username)[0] %> </h2></li>
-          <li> <%= link_to "Logout", logout_path, method: :delete, class: "btn btn-default" %> </li>
-        </ul>
-      <% else %>
-        <div class="nav navbar-nav navbar-right"><%= link_to "Login with Instagram", "auth/instagram", class: "btn btn-default"  %> </div>
-      <% end %> -->
 
     </div><!-- /.navbar-collapse -->
 </div>

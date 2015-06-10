@@ -18,6 +18,7 @@ gem 'instagram'
 gem 'figaro'
 gem 'omniauth-instagram'
 gem 'faraday'
+gem 'webmock', group: :test
 
 group :development, :test do
   gem 'better_errors'
