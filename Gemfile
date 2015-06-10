@@ -25,6 +25,7 @@ group :development, :test do
   gem 'simplecov', :require => false, :group => :test
   gem 'pry'
   gem 'vcr'
+  gem 'webmock'
   gem 'launchy'
   gem 'capybara'
   gem 'rspec-rails'
