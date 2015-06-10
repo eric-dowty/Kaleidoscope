@@ -29,6 +29,19 @@ var addRows = function(data){
   $("#instagram-table").append(htmlData)
 }
 
+var tagHTML = function(hash){
+  return("<li>" + hash + "</li>")
+}
+
+var addTags = function(hashArray){
+  $("#popular-hashes").html("")
+  var tagData = ""
+  for(i=0; i<hashArray.length; i++){
+    tagData = tagData + tagHTML(hashArray[i])
+  }
+  $("#popular-hashes").append(tagData)
+}
+
 var mapHighlight = function(data){
 
   $(".instagram-row").mouseenter(function() {
@@ -80,7 +93,7 @@ var createPoints = function(coordinates){
   
   addRows(data)
   mapHighlight(data)
-  popularHashes(data)
+  addTags(popularHashes(data))
 
   markerLayer.setGeoJSON(data);
   });
