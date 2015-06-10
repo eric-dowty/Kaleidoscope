@@ -18,6 +18,7 @@ gem 'instagram'
 gem 'figaro'
 gem 'omniauth-instagram'
 gem 'faraday'
+gem 'webmock', group: :test
 
 group :development, :test do
   gem 'better_errors'
@@ -25,7 +26,6 @@ group :development, :test do
   gem 'simplecov', :require => false, :group => :test
   gem 'pry'
   gem 'vcr'
-  gem 'webmock'
   gem 'launchy'
   gem 'capybara'
   gem 'rspec-rails'
