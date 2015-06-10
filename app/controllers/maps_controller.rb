@@ -13,7 +13,4 @@ class MapsController < ApplicationController
     end
   end
 
-  def tester
-  end
-
 end
