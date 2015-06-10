@@ -100,14 +100,16 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $base-font-family;
   color: white;
   font-size: 1.2em;
-  background: none;
+  background: $primary-color-transparent;
   padding: 5px 20px 5px 20px;
   text-decoration: none;
   // display: inline;
+  border-color: white;
 }
 
 .btn-purple:hover {
-  background: $primary-color-transparent;
+  background: none;
+  color: white;
   text-decoration: none;
 }
 
