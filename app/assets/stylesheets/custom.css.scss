@@ -16,6 +16,10 @@ body {
 
 
 // COLORS ///////////////////////////////////////////////////////////////////
+$primary-color:   rgba(93,42,125,1.0);    // dark-purple
+$primary-color-transparent:   rgba(93,42,125,0.5);    // dark-purple-transparent
+$secondary-color: rgba(255,255,255,1.0);  // white
+
 $white: rgba(255,255,255,1);
 $white-trans: rgba(255,255,255,0.5);
 
@@ -28,8 +32,6 @@ $blue-med:  #337ab7;
 $blue-dark: rgba(46,109,164,0.3);
 
 
-$primary-color:   rgba(93,42,125,1.0);   // dark-purple
-$secondary-color: rgba(255,255,255,1.0);  // white
 
 
 
@@ -75,12 +77,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: none;
 }
 
-.left-text{
-  margin-top: none;
-  padding-top: none;
-  margin-left: 20%;
-  color: white;
-}
+
 
 
 
@@ -96,9 +93,28 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.btn-purple {
+  -webkit-border-radius: 3;
+  -moz-border-radius: 3;
+  border-radius: 3px;
+  font-family: $base-font-family;
+  color: white;
+  font-size: 1.2em;
+  background: none;
+  padding: 5px 20px 5px 20px;
+  text-decoration: none;
+  // display: inline;
+}
+
+.btn-purple:hover {
+  background: $primary-color-transparent;
+  text-decoration: none;
+}
+
 #location-btn {
   color: white;
   padding-top: 0px;
+  margin-right: 40px;
 }
 
 #location-btn a {
@@ -148,7 +164,7 @@ h1, h2, h3, h4, h5, h6 {
 
   .navbar-collapse {
     // margin: 15px 0 0 0;
-    padding: 8px 40px 0 0;
+    padding: 8px 0 0 0;
   }
 
   // .nav {
@@ -182,6 +198,22 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
+.slogan{
+  margin-top: none;
+  padding-top: none;
+  margin-left: 80px;
+  color: white;
+}
+
+.navbar-nav .open .dropdown-menu {
+    // position: static;
+    // float: none;
+    // width: auto;
+    margin: 0 10% 0 10%;
+    // background-color: transparent;
+    // border: 0;
+    // box-shadow: none;
+  }
 
 
 
@@ -223,8 +255,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/* responsive formatting */
 
+
+// RESPONSIVE-DESKTOP ///////////////////////////////////////////////
 @media (min-width: 711px) {
 
   div#map{
@@ -247,6 +280,9 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
+
+
+// RESPONSIVE-PHONE //////////////////////////////////////////////////
 @media (max-width: 710px) {
 
   div#map{
@@ -261,5 +297,22 @@ h1, h2, h3, h4, h5, h6 {
   table {
     table-layout: fixed;
     word-wrap: break-word;
+  }
+
+  .slogan{
+    margin-top: none;
+    padding-top: none;
+    margin-left: 0;
+    color: white;
+  }
+
+  .navbar-collapse {
+    padding: 8px 0 0 0;
+  }
+
+  #location-btn {
+    color: white;
+    padding-top: 0px;
+    margin-right: 0px;
   }
 }
