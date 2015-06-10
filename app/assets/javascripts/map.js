@@ -7,6 +7,10 @@ var map              = L.mapbox.map('map', 'boomkenster.mbi8c0ap')
 var markerLayer      = L.mapbox.featureLayer().addTo(map);
 var turing           = [39.750081, -104.999703];
 map.setView(turing, 13);
+    L.control.locate({
+        setView: true,
+        locateOptions:{maxZoom:14}
+    }).addTo(map);
 
 var rowHTML = function(index, data) {
   return("<tr class='instagram-row' data-index="+index+">"
