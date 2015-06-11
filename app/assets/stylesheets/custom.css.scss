@@ -103,15 +103,21 @@ h1, h2, h3, h4, h5, h6 {
   background: $primary-color-transparent;
   padding: 5px 20px 5px 20px;
   text-decoration: none;
-  // display: inline;
   border-color: white;
+
+    a:link {
+      color: white;
+      text-decoration: none;
+    }
+    a:visited { color: white }
+    a:active  { color: white }
 }
 
 .btn-purple:hover {
   background: none;
-  color: white;
-  text-decoration: none;
 }
+
+
 
 #location-btn {
   color: white;
