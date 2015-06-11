@@ -196,7 +196,7 @@ function tagHTML(hash){
 }
 
 function rowHTML(index, data) {
-  return("<tr class='instagram-row row-"+index+"' data-index="+index+">"
+  return("<tr class='instagram-row' data-index="+index+">"
          + "<td class='instagram-thumb'>"
          +  "<img src="+data["properties"]["thumbnail"]+" alt='instagram picture' /><br>"
          +  "<button class='btn btn-collapse' type='button' data-toggle='collapse' data-target='#post-data"+index+"' aria-expanded='false' aria-controls='post-data"+index+"'>"
