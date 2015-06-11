@@ -34,5 +34,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'teaspoon'
+  gem 'teaspoon-jasmine'
 end
 
