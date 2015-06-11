@@ -8,10 +8,12 @@ feature "User can" do
     end
   end
 
-    xit "can view instagram posts" do
+  xit "can view instagram posts" do
       VCR.use_cassette("index_page") do 
        visit root_path
-        first('button infoB').click
+        within('.instagram-table') do
+          first('.btn').click
+        end
        expect(page).to have_content("likes")
      end
   end
