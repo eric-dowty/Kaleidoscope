@@ -17,6 +17,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'instagram'
 gem 'figaro'
 gem 'omniauth-instagram'
+gem 'skylight'
 gem 'faraday'
 gem 'webmock', group: :test
 
