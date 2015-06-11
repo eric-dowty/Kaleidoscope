@@ -8,6 +8,10 @@ var turing           = [39.750081, -104.999703];
 var geolocate        = document.getElementById('geolocate');
 var popup            = L.popup();
 map.setView(turing, 13);
+    L.control.locate({
+        setView: true,
+        locateOptions:{maxZoom:14}
+    }).addTo(map);
 
 function addRows(data){
   $('#instagram-table').html("");
