@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
 
 //Set mapbox map view
@@ -6,22 +5,11 @@ L.mapbox.accessToken = $('#map-data').data('token')
 var map              = L.mapbox.map('map', 'boomkenster.mbi8c0ap')
 var markerLayer      = L.mapbox.featureLayer().addTo(map);
 var turing           = [39.750081, -104.999703];
+var geolocate        = document.getElementById('geolocate');
+var popup            = L.popup();
 map.setView(turing, 13);
 
-var rowHTML = function(index, data) {
-  return("<tr class='instagram-row' data-index="+index+">"
-         + "<td class='instagram-thumb'>"
-         +  "<img src="+data["properties"]["thumbnail"]+" alt='instagram picture' /><br>"
-         +  "<button class='btn btn-collapse' type='button' data-toggle='collapse' data-target='#post-data"+index+"' aria-expanded='false' aria-controls='post-data"+index+"'>"
-         +  "<span class='glyphicon glyphicon-chevron-down' aria-hidden='true'></span>"
-         +  "</button><div class='collapse' id='post-data"+index+"'>"
-         +  "<div class='instagram-username'>"+data["properties"]["username"]+"<br>"
-         +  "</div><div class='instagram-post'>"+data["properties"]["post"]+"<br>"
-         +  "</div><div class='instagram-likes'>Likes:"+data["properties"]["likes"]+"</div></div>"
-         + "</td></tr>")
-}
-
-var addRows = function(data){
+function addRows(data){
   $('#instagram-table').html("");
   var htmlData = ""
   for(i=0; i<data.length; i++){
@@ -30,11 +18,7 @@ var addRows = function(data){
   $("#instagram-table").append(htmlData)
 }
 
-var tagHTML = function(hash){
-  return("<li>" + hash + "</li>")
-}
-
-var addTags = function(hashArray){
+function addTags(hashArray){
   $("#popular-hashes").html("")
   var tagData = ""
   for(i=0; i<hashArray.length; i++){
@@ -43,7 +27,7 @@ var addTags = function(hashArray){
   $("#popular-hashes").append(tagData)
 }
 
-var mapHighlight = function(data){
+function mapHighlight(data){
 
   $(".instagram-row").mouseenter(function() {
     if ($(this).data('index') === 0 ){
@@ -63,21 +47,22 @@ var mapHighlight = function(data){
     resetMarker($(this).data('index'))
   });
 
-  var highlightMarker = function(index) {
+  function highlightMarker(index) {
     var instagramMarker = data[index]
     instagramMarker.properties['marker-color'] = "#5D2A7D";
     instagramMarker.properties['marker-size']  = 'large';
     markerLayer.setGeoJSON(data);
   }
 
-  var resetMarker = function(index) {
+  function resetMarker(index) {
     var instagramMarker = data[index]
     instagramMarker.properties['marker-color'] = '#8F8397';
     instagramMarker.properties['marker-size']  = 'small';
   }
+
 }
 
-var createPoints = function(coordinates){
+function createPoints(coordinates){
   var url = '/maps.json'
   if (coordinates !== undefined) {
     url += '?lat=' + coordinates['lat'] + '&lon=' + coordinates['lng'];
@@ -99,9 +84,11 @@ var createPoints = function(coordinates){
   markerLayer.setGeoJSON(data);
   });
 
-  var popUpAll = function(marker){
-    var popupContent = '<a target="_blank" class="popup" href="#"> </a>' +
-                                '<p> <img class="popup-pic" src="' + marker.feature.properties.thumbnail + '"/> </p>'
+  function popUpAll(marker){
+    var popupContent = '<a target="_blank" class="popup" href="#"> </a>'
+                       + '<p> <img class="popup-pic" src="' 
+                       + marker.feature.properties.thumbnail + '"/> </p>'
+
     // http://leafletjs.com/reference.html#popup
     marker.bindPopup(popupContent,{
         closeButton: false,
@@ -112,8 +99,6 @@ var createPoints = function(coordinates){
   }
 
 };
-
-var geolocate = document.getElementById('geolocate');
 
 if (!navigator.geolocation) {
     geolocate.innerHTML = 'Geolocation is not available';
@@ -131,9 +116,7 @@ map.on('locationfound', function(e) {
   createPoints(e.latlng);
 });
 
-var popup = L.popup();
-
-var onMapClick = function(e){
+function onMapClick(e){
     popup
         .setLatLng(e.latlng)
         .setContent("<p class='instagram-likes'>Focusing your kaleidoscope</p>")
@@ -142,19 +125,16 @@ var onMapClick = function(e){
         createPoints(e.latlng);
 }
 
-var sortArrayByKeys = function(inputarray) {
-  var arraykeys=[];
-  for(var k in inputarray) {arraykeys.push(k);}
-  arraykeys.sort();
+map.on('click', onMapClick);
 
-  var outputarray=[];
-  for(var i=0; i<arraykeys.length; i++) {
-      outputarray[arraykeys[i]]=inputarray[arraykeys[i]];
-  }
-  return outputarray;
-}
+// Create points on page load
+createPoints();
 
-var popularHashes = function(data){
+});
+
+//HELPER FUNCTIONS
+
+function popularHashes(data){
 
   var stringifiedPosts = ""
   for(i=0; i<data.length; i++){
@@ -200,31 +180,30 @@ var popularHashes = function(data){
   return mostPopular
 }
 
-map.on('click', onMapClick);
+function sortArrayByKeys(inputarray) {
+  var arraykeys=[];
+  var outputarray=[];
+  for(var k in inputarray) {arraykeys.push(k);}
+    arraykeys.sort();
+  for(var i=0; i<arraykeys.length; i++) {
+    outputarray[arraykeys[i]]=inputarray[arraykeys[i]];
+  }
+  return outputarray;
+}
 
-// Create points on page load
-createPoints();
+function tagHTML(hash){
+  return("<li>" + hash + "</li>")
+}
 
-});
-
-
-
-    //     map.addLayer(layer);
-    // map.setView(HELSINKI, 19);
-
-    // map.locate({setView: true, watch: true}) /* This will return map so you can do chaining */
-    //     .on('locationfound', function(e){
-    //         var marker = L.marker([e.latitude, e.longitude]).bindPopup('Your are here :)');
-    //         var circle = L.circle([e.latitude, e.longitude], e.accuracy/2, {
-    //             weight: 1,
-    //             color: 'blue',
-    //             fillColor: '#cacaca',
-    //             fillOpacity: 0.2
-    //         });
-    //         map.addLayer(marker);
-    //         map.addLayer(circle);
-    //     })
-    //    .on('locationerror', function(e){
-    //         console.log(e);
-    //         alert("Location access denied.");
-    //     });
+function rowHTML(index, data) {
+  return("<tr class='instagram-row' data-index="+index+">"
+         + "<td class='instagram-thumb'>"
+         +  "<img src="+data["properties"]["thumbnail"]+" alt='instagram picture' /><br>"
+         +  "<button class='btn btn-collapse' type='button' data-toggle='collapse' data-target='#post-data"+index+"' aria-expanded='false' aria-controls='post-data"+index+"'>"
+         +  "<span class='glyphicon glyphicon-chevron-down' aria-hidden='true'></span>"
+         +  "</button><div class='collapse' id='post-data"+index+"'>"
+         +  "<div class='instagram-username'>"+data["properties"]["username"]+"<br>"
+         +  "</div><div class='instagram-post'>"+data["properties"]["post"]+"<br>"
+         +  "</div><div class='instagram-likes'>Likes:"+data["properties"]["likes"]+"</div></div>"
+         + "</td></tr>")
+}
