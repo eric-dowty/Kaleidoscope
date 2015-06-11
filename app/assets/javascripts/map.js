@@ -1,91 +1,92 @@
 $(document).ready(function(){
 
-//Set mapbox map view
-L.mapbox.accessToken = $('#map-data').data('token')
-var map              = L.mapbox.map('map', 'boomkenster.mbi8c0ap')
-var markerLayer      = L.mapbox.featureLayer().addTo(map);
-var turing           = [39.750081, -104.999703];
-var geolocate        = document.getElementById('geolocate');
-var popup            = L.popup();
-map.setView(turing, 13);
-    L.control.locate({
-        setView: true,
-        locateOptions:{maxZoom:14}
-    }).addTo(map);
+  //Set mapbox map view
+  L.mapbox.accessToken = $('#map-data').data('token')
+  var map              = L.mapbox.map('map', 'boomkenster.mbi8c0ap')
+  var markerLayer      = L.mapbox.featureLayer().addTo(map);
+  var turing           = [39.750081, -104.999703];
+  var geolocate        = document.getElementById('geolocate');
+  var popup            = L.popup();
+  map.setView(turing, 13);
 
-function addRows(data){
-  $('#instagram-table').html("");
-  var htmlData = ""
-  for(i=0; i<data.length; i++){
-    htmlData = htmlData + rowHTML(i, data[i])
-  };
-  $("#instagram-table").append(htmlData)
-}
+  L.control.locate({
+      setView: true,
+      locateOptions:{maxZoom:14}
+  }).addTo(map);
 
-function addTags(hashArray){
-  $("#popular-hashes").html("")
-  var tagData = ""
-  for(i=0; i<hashArray.length; i++){
-    tagData = tagData + tagHTML(hashArray[i])
+  function addRows(data){
+    $('#instagram-table').html("");
+    var htmlData = ""
+    for(i=0; i<data.length; i++){
+      htmlData = htmlData + rowHTML(i, data[i])
+    };
+    $("#instagram-table").append(htmlData)
   }
-  $("#popular-hashes").append(tagData)
-}
 
-function mapHighlight(data){
-
-  $(".instagram-row").mouseenter(function() {
-    if ($(this).data('index') === 0 ){
-      $(this).addClass('row-one-higlight')  
-    } else {
-      $(this).addClass('row-highlight')
+  function addTags(hashArray){
+    $("#popular-hashes").html("")
+    var tagData = ""
+    for(i=0; i<hashArray.length; i++){
+      tagData = tagData + tagHTML(hashArray[i])
     }
-    highlightMarker($(this).data('index'))
-  });
+    $("#popular-hashes").append(tagData)
+  }
 
-  $('.instagram-row').mouseleave(function() {
-    if ($(this).data('index') === 0 ){
-      $(this).removeClass('row-one-higlight')  
-    } else {
-      $(this).removeClass('row-highlight')
+  function mapHighlight(data){
+
+    $(".instagram-row").mouseenter(function() {
+      if ($(this).data('index') === 0 ){
+        $(this).addClass('row-one-higlight')  
+      } else {
+        $(this).addClass('row-highlight')
+      }
+      highlightMarker($(this).data('index'))
+    });
+
+    $('.instagram-row').mouseleave(function() {
+      if ($(this).data('index') === 0 ){
+        $(this).removeClass('row-one-higlight')  
+      } else {
+        $(this).removeClass('row-highlight')
+      }
+      resetMarker($(this).data('index'))
+    });
+
+    function highlightMarker(index) {
+      var instagramMarker = data[index]
+      instagramMarker.properties['marker-color'] = "#5D2A7D";
+      instagramMarker.properties['marker-size']  = 'large';
+      markerLayer.setGeoJSON(data);
     }
-    resetMarker($(this).data('index'))
-  });
 
-  function highlightMarker(index) {
-    var instagramMarker = data[index]
-    instagramMarker.properties['marker-color'] = "#5D2A7D";
-    instagramMarker.properties['marker-size']  = 'large';
+    function resetMarker(index) {
+      var instagramMarker = data[index]
+      instagramMarker.properties['marker-color'] = '#8F8397';
+      instagramMarker.properties['marker-size']  = 'small';
+    }
+
+  }
+
+  function createPoints(coordinates){
+    var url = '/maps.json'
+    if (coordinates !== undefined) {
+      url += '?lat=' + coordinates['lat'] + '&lon=' + coordinates['lng'];
+    }
+    $.get(url, function(data) {
+      markerLayer.on('mouseover', function(e) {
+      var marker  = e.layer;
+      popUpAll(marker);
+    });
+
+    markerLayer.on('mouseout', function(e) {
+      e.layer.closePopup();
+    });
+    
+    addRows(data)
+    mapHighlight(data)
+    addTags(popularHashes(data))
+
     markerLayer.setGeoJSON(data);
-  }
-
-  function resetMarker(index) {
-    var instagramMarker = data[index]
-    instagramMarker.properties['marker-color'] = '#8F8397';
-    instagramMarker.properties['marker-size']  = 'small';
-  }
-
-}
-
-function createPoints(coordinates){
-  var url = '/maps.json'
-  if (coordinates !== undefined) {
-    url += '?lat=' + coordinates['lat'] + '&lon=' + coordinates['lng'];
-  }
-  $.get(url, function(data) {
-  markerLayer.on('mouseover', function(e) {
-    var marker  = e.layer;
-    popUpAll(marker);
-  });
-
-  markerLayer.on('mouseout', function(e) {
-    e.layer.closePopup();
-  });
-  
-  addRows(data)
-  mapHighlight(data)
-  addTags(popularHashes(data))
-
-  markerLayer.setGeoJSON(data);
   });
 
   function popUpAll(marker){
@@ -102,44 +103,43 @@ function createPoints(coordinates){
     marker.openPopup();
   }
 
-};
+  };
 
-if (!navigator.geolocation) {
-    geolocate.innerHTML = 'Geolocation is not available';
-} else {
-    geolocate.onclick = function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        map.locate();
-    };
-}
+  if (!navigator.geolocation) {
+      geolocate.innerHTML = 'Geolocation is not available';
+  } else {
+      geolocate.onclick = function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          map.locate();
+      };
+  }
 
-map.on('locationfound', function(e) {
-  map.setView(e.latlng, 13);
-  markerLayer.clearLayers()
-  createPoints(e.latlng);
-});
+  map.on('locationfound', function(e) {
+    map.setView(e.latlng, 13);
+    markerLayer.clearLayers()
+    createPoints(e.latlng);
+  });
 
-function onMapClick(e){
-    popup
-        .setLatLng(e.latlng)
-        .setContent("<p class='instagram-likes'>Focusing your kaleidoscope</p>")
-        .openOn(map);
-        markerLayer.clearLayers()
-        createPoints(e.latlng);
-}
+  function onMapClick(e){
+      popup
+          .setLatLng(e.latlng)
+          .setContent("<p class='instagram-likes'>Focusing your kaleidoscope</p>")
+          .openOn(map);
+          markerLayer.clearLayers()
+          createPoints(e.latlng);
+  }
 
-map.on('click', onMapClick);
+  map.on('click', onMapClick);
 
-// Create points on page load
-createPoints();
+  // Create points on page load
+  createPoints();
 
 });
 
 //HELPER FUNCTIONS
 
 function popularHashes(data){
-
   var stringifiedPosts = ""
   for(i=0; i<data.length; i++){
     stringifiedPosts = stringifiedPosts + " " + data[i]["properties"]["post"]
@@ -172,27 +172,23 @@ function popularHashes(data){
   })
 
   var mostPopular = []
-  for(i=0; mostPopular.length<5; i++){
-    if(i === keys.length-1 ){
-      i = 0
-      mostLikes = mostLikes - 1
-    }
-    if(hashCount[keys[i]] === mostLikes){
+  if(keys.length<=5){
+    for(i=0; i<keys.length; i++){
       mostPopular.push(keys[i])
     }
+  } else {
+    for(i=0; mostPopular.length<5; i++){
+      if(i === keys.length-1 ){
+        i = 0
+        mostLikes = mostLikes - 1
+      }
+      if(hashCount[keys[i]] === mostLikes){
+        mostPopular.push(keys[i])
+      }
+    }
   }
-  return mostPopular
-}
 
-function sortArrayByKeys(inputarray) {
-  var arraykeys=[];
-  var outputarray=[];
-  for(var k in inputarray) {arraykeys.push(k);}
-    arraykeys.sort();
-  for(var i=0; i<arraykeys.length; i++) {
-    outputarray[arraykeys[i]]=inputarray[arraykeys[i]];
-  }
-  return outputarray;
+  return mostPopular
 }
 
 function tagHTML(hash){
