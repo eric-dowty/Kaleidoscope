@@ -27,6 +27,7 @@ group :development, :test do
   gem 'simplecov', :require => false, :group => :test
   gem 'pry'
   gem 'vcr'
+  gem 'guard-rspec'
   gem 'launchy'
   gem 'capybara'
   gem 'rspec-rails'
@@ -36,5 +37,6 @@ group :development, :test do
   gem 'spring'
   gem 'teaspoon'
   gem 'teaspoon-jasmine'
+  gem 'emoji-rspec', git: "git@github.com:carhartl/emoji-rspec.git", branch: "rspec-3" 
 end
 
