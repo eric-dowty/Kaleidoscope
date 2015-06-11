@@ -152,7 +152,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar {
   border: none;
   border-radius: 0px;
-  // margin: 0 0 0 0;
+  z-index: 2001;
 
   .navbar-brand {
     width: 224px;
