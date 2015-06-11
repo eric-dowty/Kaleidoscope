@@ -14,6 +14,8 @@ RSpec.feature "map page", type: :feature do
   end
 
   scenario "user looks at instagram data" do
+    VCR.use_cassette("get_denver_instagrams") do 
+    end
   end
 
 
