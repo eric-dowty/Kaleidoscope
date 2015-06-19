@@ -80,6 +80,9 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
+  encoding: unicode
   database: thought_cloud_production
-  username: thought_cloud
-  password: <%= ENV['THOUGHT_CLOUD_DATABASE_PASSWORD'] %>
+  pool: 5
+  username: deploy
+  password: <%= ENV['DO_PW'] %>
