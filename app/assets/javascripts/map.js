@@ -1,4 +1,4 @@
-$SkimThroughSkimThroughSkimThroughSkimThroughSkimThrough(document).ready(function(){
+$(document).ready(function(){
 
   //Set mapbox map view
   L.mapbox.accessToken = $('#map-data').data('token')
