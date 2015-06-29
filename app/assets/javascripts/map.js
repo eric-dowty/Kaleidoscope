@@ -20,7 +20,6 @@ $(document).ready(function(){
     for(i=0; i<data.length; i++){
       htmlData = htmlData + rowHTML(i, data[i])
     };
-    
     $("#instagram-table").append(htmlData)
   }
 
